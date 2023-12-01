@@ -1,0 +1,37 @@
+.Preloader {
+    background: #33FFF3;
+    min-height: 100vh;
+    display: flex;
+}
+
+.container {
+    margin: 337px auto auto auto;
+    width: 1206px;
+}
+.title {
+    font-size: 128px;
+    font-weight: 800;
+    line-height: 116px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #F5F5F5;
+    display: inline-block;
+  }
+
+.title2Container {
+    background-color: #F5F5F5;
+    width:  346px;
+    height:  156px;
+    margin-left: 50px;
+    padding: 20px 64px 20px 64px;
+    border-radius: 80px;
+    transform: rotate(-9.47deg);
+    display: inline-block;
+}
+.title2 {
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 116px;
+    letter-spacing: 0em;
+    color: #33FFF3;
+}

@@ -1,0 +1,37 @@
+.main {
+    background: #000000;
+    min-height: 100vh;
+    display: flex;
+}
+
+.searchBar {
+    margin: 24px auto auto auto;
+    width: 1270px;
+    height: 69px;
+    border: 2px solid #F5F5F514;
+    border-radius: 64px;
+}
+
+.searchBarIcon {
+    margin: 15px auto auto 32px;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.menuText {
+    margin: 26px auto 26px auto;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    color: #F5F5F5;
+    display: inline-block;
+}
+
+.menuBarIcon {
+    margin: auto 32px auto auto;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
