@@ -35,3 +35,86 @@
     width: 40px;
     display: inline-block;
 }
+
+/* Super proud to work with */
+    .clientContainer {
+        margin-top: 102px;
+        position: relative;
+    }
+    .clientContainer:after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        background-image:
+            linear-gradient(90deg, #010101 0%, rgba(1, 1, 1, 0) 20%, transparent 80% ),
+            linear-gradient(90deg, transparent 80%, rgba(1, 1, 1, 0) 20%, #010101 100%);
+
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .clientLogoContainer {
+        height: 62px; 
+        overflow-x: scroll; 
+        overflow-y: hidden; 
+        white-space: nowrap;
+    }
+
+    .clientLogo {
+        width: 160px;
+        height: 62px;
+        float: left;
+        margin-left: 32px;
+    }
+
+/* Let's Chat */
+    .letsChatContainer {
+        margin-top: 240px;
+        text-align: center;
+    }
+    .letsChatButton {
+        padding: 16px 40px 16px 40px;
+        background: #33FF85;
+        width: 177px;
+        height: 54px; 
+        border-radius:48px;
+        box-shadow: 0px 0px 16px 0px #FF336680
+    }
+
+/* Footer */
+    .footerContainer {
+        margin-top: 240px;
+        height: 553px;
+        background-image: url('../../assets/footer-background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border: 1px solid transparent;
+    }
+    .footerSubContainer {
+        margin-top: 254px;
+        text-align: center;
+    }
+    .footerMenuContainer {
+        margin-top: 48px;
+    }
+    .footerSocialMediaContainer {
+        margin-top: 56px;
+    }
+    .footerSocialMedia {
+        margin: auto;
+        width: 298px;
+    }
+    .footerLinkContainer {
+        margin-top: 80px;
+        position: relative;
+    }

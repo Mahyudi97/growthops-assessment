@@ -1,14 +1,62 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Preloader from '../Preloader/Preloader'
 import './MainPage.css'
-import {  GoIcon, MenuIcon, RimBackground, StockDevicePhoto, SuperBackground, UnforgettableBackground } from '../../assets'
+import {  ArrowUpRightFromSquareSolid, FacebookIcon, GoIcon, InstagramIcon, LinkedInIcon, MenuIcon, RimBackground, StockDevicePhoto, SuperBackground, UnforgettableBackground, YoutubeIcon } from '../../assets'
 import ClientLogo1 from '../../assets/client-logo-1';
 import ClientLogo2 from '../../assets/client-logo-2';
 import ClientLogo3 from '../../assets/client-logo-3';
-
 import { LinearGradient } from 'react-text-gradients'
 
 function MainPage() {
+    
+    useEffect(() => {
+        //Scrolling Client Logo 1
+        if(document.getElementById('ClientLogo1Container'))
+        {
+            const ClientLogo1Container = document.getElementById('ClientLogo1Container');
+            const ClientLogo1ContainerWidth = ClientLogo1Container.scrollWidth;
+
+            window.addEventListener('load', () => {
+                window.self.setInterval(() => {
+                    if (ClientLogo1Container.scrollLeft !== ClientLogo1ContainerWidth) {
+                        ClientLogo1Container.scrollTo(ClientLogo1Container.scrollLeft + 1, 0);
+                    }
+                }, 15);
+            });
+        }
+        //Scrolling Client Logo 2
+        if(document.getElementById('ClientLogo2Container'))
+        {
+            const ClientLogo2Container = document.getElementById('ClientLogo2Container');
+            const ClientLogo2ContainerWidth = ClientLogo2Container.scrollWidth;
+            ClientLogo2Container.scrollTo(ClientLogo2ContainerWidth, 0);
+
+            window.addEventListener('load', () => {
+                window.self.setInterval(() => {
+                    if (ClientLogo2Container.scrollLeft !== ClientLogo2ContainerWidth) {
+                        ClientLogo2Container.scrollTo(ClientLogo2Container.scrollLeft - 0.5, 0);
+                    }
+                }, 15);
+            });
+        }
+        //Scrolling Client Logo 3
+        if(document.getElementById('ClientLogo3Container'))
+        {
+            const ClientLogo3Container = document.getElementById('ClientLogo3Container');
+            const ClientLogo3ContainerWidth = ClientLogo3Container.scrollWidth;
+
+            window.addEventListener('load', () => {
+                window.self.setInterval(() => {
+                    console.log('ClientLogo3Container.scrollLeft',ClientLogo3Container.scrollLeft)
+                    console.log('ClientLogo3ContainerWidth', ClientLogo3ContainerWidth)
+                    if (ClientLogo3Container.scrollLeft !== ClientLogo3ContainerWidth) {
+                        ClientLogo3Container.scrollTo(ClientLogo3Container.scrollLeft + 1, 0);
+                    }
+                }, 15);
+            });
+        }
+    }, [])
+
   return (
     <div>
         <Preloader />
@@ -257,7 +305,7 @@ function MainPage() {
                 </div>
             </div>
 
-            {/* super proud to work with */}
+            {/* Super proud to work with */}
             <div className='text-center text-white font-extrabold text-8xl' style={{ marginTop: '328px', padding: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <div style={{ position: 'relative',  width:'373px', height: '110px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <div style={{ position: 'absolute', zIndex: '2', width: '100%', height: '100%', backgroundImage: `url(${SuperBackground})` }}></div>
@@ -273,32 +321,88 @@ function MainPage() {
                 WORK WITH
             </p>
             <div style={{clear:'both'}}></div>
-            <div style={{ marginTop: '102px'}}>
-                <div style={{ height: '62px', border:'1px solid white', overflow: 'scroll'}}>
-                    {ClientLogo1.map((img) => (
-                        <img key={img} src={img} alt={img} width={'160px'} height={'62px'} style={{float: 'left', marginLeft: '32px'}}/>
-                    ))}
-                    {ClientLogo1.map((img) => (
-                        <img key={img} src={img} alt={img} width={'160px'} height={'62px'} style={{float: 'left', marginLeft: '32px'}}/>
-                    ))}
-                </div>
-                {/* <div style={{ marginTop: '64px', border:'1px solid white'}}>
-                    {ClientLogo2.map((img) => (
-                            <img key={img} src={img} alt={img} width={'160px'} height={'62px'} style={{float: 'left', marginLeft: '32px'}}/>
-                        ))}
-                    {ClientLogo2.map((img) => (
-                        <img key={img} src={img} alt={img} width={'160px'} height={'62px'} style={{float: 'left', marginLeft: '32px'}}/>
-                    ))}
-                </div>
-                <div style={{ marginTop: '64px', border:'1px solid white'}}>
-                     {ClientLogo3.map((img) => (
-                        <img key={img} src={img} alt={img} width={'160px'} height={'62px'} style={{float: 'left', marginLeft: '32px'}}/>
-                    ))}
-                    {ClientLogo3.map((img) => (
-                        <img key={img} src={img} alt={img} width={'160px'} height={'62px'} style={{float: 'left', marginLeft: '32px'}}/>
-                    ))}
-                </div> */}
 
+            <div className='clientContainer'>
+                <div id={'ClientLogo1Container'} className='clientLogoContainer no-scrollbar'>
+                    <div  style={{ width: '2080px' }}>
+                        {ClientLogo1.map((img) => (
+                            <img key={img} src={img} alt={img} className='clientLogo'/>
+                        ))}
+                        {ClientLogo1.map((img) => (
+                            <img key={img} src={img} alt={img} className='clientLogo' />
+                        ))}
+                    </div>
+                </div>
+
+                <div id={'ClientLogo2Container'} className='clientLogoContainer no-scrollbar' style={{ marginTop: '64px' }}>
+                    <div  style={{ width: '2080px' }}>
+                        {ClientLogo2.map((img) => (
+                            <img key={img} src={img} alt={img} className='clientLogo' />
+                        ))}
+                        {ClientLogo2.map((img) => (
+                            <img key={img} src={img} alt={img} className='clientLogo'/>
+                        ))}
+                    </div>
+                </div>
+
+                
+                <div id={'ClientLogo3Container'} className='clientLogoContainer no-scrollbar' style={{ marginTop: '64px' }}>
+                    <div  style={{ width: '2080px' }}>
+                        {ClientLogo3.map((img) => (
+                            <img key={img} src={img} alt={img} className='clientLogo'/>
+                        ))}
+                        {ClientLogo3.map((img) => (
+                            <img key={img} src={img} alt={img} className='clientLogo'/>
+                        ))}
+                    </div>
+                </div>
+
+            </div>
+
+            {/* Let's Chat */}
+            <div className='letsChatContainer'>
+                <button className='font-extrabold text-lg leading-5 text-white letsChatButton'>
+                    Let's Chat
+                </button>
+            </div>
+
+            {/* Footer */}
+            <div className='footerContainer'>
+                <div className='footerSubContainer'>
+                    <div className='footerMenuContainer'>
+                        <a className='text-white mr-10	cursor-pointer	'>Services</a>
+                        <a className='text-white mr-10	cursor-pointer	'>Works</a>
+                        <a className='text-white mr-10	cursor-pointer	'>Insights</a>
+                        <a className='text-white mr-10	cursor-pointer	'>Careers</a>
+                        <a className='text-white cursor-pointer	'>Contact Us</a>
+                    </div> 
+                    <div className='footerSocialMediaContainer'>
+                        <div className='footerSocialMedia'>
+                            <div className='text-white mr-14' style={{ padding:'auto', width:'32px', height:'32px', float: 'left'}}>
+                                <a className='text-white cursor-pointer	'><img src={LinkedInIcon}></img></a>
+                            </div>
+                            <div className='text-white mr-14' style={{ padding:'auto', width:'32px', height:'32px', float: 'left'}}>
+                                <a className='text-white cursor-pointer	'><img src={FacebookIcon}></img></a>
+                            </div>
+                            <div className='text-white mr-14' style={{ padding:'auto', width:'32px', height:'32px', float: 'left'}}>
+                                <a className='text-white cursor-pointer	'><img src={InstagramIcon}></img></a>
+                            </div>
+                            <div className='text-white' style={{ padding:'auto', width:'32px', height:'32px', float: 'left'}}>
+                                <a className='text-white cursor-pointer	'><img src={YoutubeIcon}></img></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{ clear: 'both'}}></div>
+                    <div className='footerLinkContainer'>
+                        <div className='font-semibold text-xs	leading-4' style={{ float: 'left', width: '50%', textAlign: 'left', paddingLeft: '80px'}}>
+                            <p  style={{ color: '#6F7176'}}>© Copyright GrowthOps. All rights reserved.</p>
+                        </div>
+                        <div className='text-white font-normal	text-xs	leading-4' style={{ float: 'left', position:'relative', width: '50%', textAlign: 'right', paddingRight: '80px'}}>
+                            <a className='text-white cursor-pointer'><img src={ArrowUpRightFromSquareSolid} style={{ display: 'inline-block', width: '11px', height: '11px'}} className='mr-1'/> Go to global GrowthOps website</a>
+                            <a className='text-white cursor-pointer	ml-12'>Privacy policy</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
