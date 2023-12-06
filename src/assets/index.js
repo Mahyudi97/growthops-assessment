@@ -10,4 +10,5 @@ export { default as FacebookIcon} from './facebook-icon.png'
 export { default as InstagramIcon} from './instagram-icon.png'
 export { default as YoutubeIcon} from './youtube-icon.png'
 export { default as ArrowUpRightFromSquareSolid} from './arrow-up-right-from-square-solid.svg'
+export { default as CloseIcon} from './close-icon.svg'
 

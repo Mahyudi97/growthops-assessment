@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Preloader from '../Preloader/Preloader'
 import './MainPage.css'
-import {  ArrowUpRightFromSquareSolid, FacebookIcon, GoIcon, InstagramIcon, LinkedInIcon, MenuIcon, RimBackground, StockDevicePhoto, SuperBackground, UnforgettableBackground, YoutubeIcon } from '../../assets'
+import {  ArrowUpRightFromSquareSolid, CloseIcon, FacebookIcon, GoIcon, InstagramIcon, LinkedInIcon, MenuIcon, RimBackground, StockDevicePhoto, SuperBackground, UnforgettableBackground, YoutubeIcon } from '../../assets'
 import ClientLogo1 from '../../assets/client-logo-1';
 import ClientLogo2 from '../../assets/client-logo-2';
 import ClientLogo3 from '../../assets/client-logo-3';
 import { LinearGradient } from 'react-text-gradients'
+import SideMenu from '../SideMenu/SideMenu';
 
 function MainPage() {
-    
+    const [showSideMenu, setShowSideMenu] = useState(false)
+    const openSideMenu = () => { setShowSideMenu(true) }
+    const closeSideMenu = () => { setShowSideMenu(false) }
+
     useEffect(() => {
         //Scrolling Client Logo 1
         if(document.getElementById('ClientLogo1Container'))
@@ -47,8 +51,6 @@ function MainPage() {
 
             window.addEventListener('load', () => {
                 window.self.setInterval(() => {
-                    console.log('ClientLogo3Container.scrollLeft',ClientLogo3Container.scrollLeft)
-                    console.log('ClientLogo3ContainerWidth', ClientLogo3ContainerWidth)
                     if (ClientLogo3Container.scrollLeft !== ClientLogo3ContainerWidth) {
                         ClientLogo3Container.scrollTo(ClientLogo3Container.scrollLeft + 1, 0);
                     }
@@ -61,15 +63,38 @@ function MainPage() {
     <div>
         <Preloader />
         <div className='main'>
+            {/* SideMenu */}
+            { 
+            showSideMenu && 
+                <>
+                    <div className='sideMenuModal'>
+                        <div className='sideMenuHeader'>
+                            <div className='sideMenuIcon'>
+                                <img src={GoIcon} />
+                            </div>
+                            <div className='sideMenuClose'>
+                                <a className='text-white cursor-pointer menuText' onClick={closeSideMenu} >CLOSE <img src={CloseIcon} style={{ display: 'inline-block', marginLeft: '8px' }}/></a>
+                            </div>
+                        </div>
+                        <div className='sideMenuContent text-white uppercase'>
+                            <div className='sideMenuList'><a className='text-white cursor-pointer'>Services</a></div> <br></br>
+                            <div className='sideMenuList'><a className='text-white cursor-pointer'>Work</a></div>   <br></br>
+                            <div className='sideMenuList'><a className='text-white cursor-pointer'>Insights</a></div>  <br></br>
+                            <div className='sideMenuList'><a className='text-white cursor-pointer'>Careers</a></div>  <br></br>
+                            <div className='sideMenuList'><a className='text-white cursor-pointer'>Contact</a></div>  <br></br>
+                        </div>
+                    </div>
+                </>
+            }
             <div  style={{backgroundImage: `url(${RimBackground})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
                 <div style={{ width: '100%', height:'115px', border: '2px solid transparent' }}>
                     <div className='searchBar'>
-                        <img src={GoIcon} className='searchBarIcon'/>
-
-                        <button style={{float: 'right'}}>
-                            <p className='menuText'>Menu</p>
-                            <img src={MenuIcon} className='menuBarIcon'/>
-                        </button>
+                        <div className='searchBarIcon'>
+                            <img src={GoIcon} />
+                        </div>
+                        <div className='menuBarIcon'>
+                            <a className='text-white cursor-pointer menuText' onClick={openSideMenu} >Menu <img src={MenuIcon} style={{ display: 'inline-block', marginLeft: '8px' }}/></a>
+                        </div>
                     </div>
                 </div>            
                 <div style={{ width: '1203px', margin: '130px auto auto auto' }}>
@@ -87,10 +112,10 @@ function MainPage() {
             <p className='text-center text-white font-medium text-3xl leading-10' style={{ paddingTop: '62px'}}>
                 With a focus in fusing <span style={{ color: '#33F3FF'}}>strategy</span>, <br></br>
                 <span style={{ position:'relative', zIndex: '0', width:'154px', display: 'inline', border: '1px solid #33FFF3', padding: '5px 15px 5px 15px', color: '#33F3FF'}}>
-                    <div class="absolute h-2.5	w-2.5" style={{zIndex: '1', background: '#000000', border: '1px solid #33FFF3', left:'-5.5px', top:'-5.5px'}}></div>
-                    <div class="absolute h-2.5 w-2.5" style={{zIndex: '1',background: '#000000',border: '1px solid #33FFF3', right:'-5.5px', top:'-5.5px'}}></div>
-                    <div class="absolute h-2.5 w-2.5" style={{zIndex: '1',background: '#000000',border: '1px solid #33FFF3', left:'-5.5px', bottom:'-5.5px'}}></div>
-                    <div class="absolute h-2.5 w-2.5" style={{zIndex: '1',background: '#000000',border: '1px solid #33FFF3', right:'-5.5px', bottom:'-5.5px'}}></div>
+                    <div className="absolute h-2.5	w-2.5" style={{zIndex: '1', background: '#000000', border: '1px solid #33FFF3', left:'-5.5px', top:'-5.5px'}}></div>
+                    <div className="absolute h-2.5 w-2.5" style={{zIndex: '1',background: '#000000',border: '1px solid #33FFF3', right:'-5.5px', top:'-5.5px'}}></div>
+                    <div className="absolute h-2.5 w-2.5" style={{zIndex: '1',background: '#000000',border: '1px solid #33FFF3', left:'-5.5px', bottom:'-5.5px'}}></div>
+                    <div className="absolute h-2.5 w-2.5" style={{zIndex: '1',background: '#000000',border: '1px solid #33FFF3', right:'-5.5px', bottom:'-5.5px'}}></div>
                     design
                 </span> and <span style={{ color: '#33F3FF'}}>{'<technology/>'}</span> to <br></br>
                 build and sustain market leaders <br></br><br></br><br></br>
