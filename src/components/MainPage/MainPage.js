@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Preloader from '../Preloader/Preloader'
 import './MainPage.css'
 import {  ArrowUpRightFromSquareSolid, CloseIcon, FacebookIcon, FooterBackground, GoIcon, InstagramIcon, LinkedInIcon, MenuIcon, RimBackground, StockDevicePhoto, SuperBackground, UnforgettableBackground, YoutubeIcon } from '../../assets'
@@ -6,14 +6,11 @@ import ClientLogo1 from '../../assets/client-logo-1';
 import ClientLogo2 from '../../assets/client-logo-2';
 import ClientLogo3 from '../../assets/client-logo-3';
 import { LinearGradient } from 'react-text-gradients'
-import SideMenu from '../SideMenu/SideMenu';
 
 function MainPage() {
     const [showSideMenu, setShowSideMenu] = useState(false)
     const openSideMenu = () => { setShowSideMenu(true) }
     const closeSideMenu = () => { setShowSideMenu(false) }
-
-    const mainpageRef = useRef()
 
     useEffect(() => {
         //Scrolling Client Logo 1
@@ -62,15 +59,13 @@ function MainPage() {
     }, [])
 
   return (
-    <div style={{ height: '100vh', overflow: 'scroll'}}>
-        <Preloader />
-        <div className='main' ref={mainpageRef}>
+    <div className='relative bg-[#000000] mainPageAnimation'>
             {/* SideMenu */}
             { 
             showSideMenu && 
                 <>
                     <div className='sideMenuModal'>
-                        <div className='w-[1270px] sm:w-[375px] h-[69px] bg-black mt-[24px] mx-auto'>
+                        <div className='w-[1270px] sm:w-[375px] h-[69px] bg-[#000000] mt-[24px] mx-auto'>
                             <div className='sideMenuIcon'>
                                 <img src={GoIcon} />
                             </div>
@@ -90,16 +85,16 @@ function MainPage() {
             }
             <div className='sm:w-screen bg-cover bg-center bg-no-repeat'  style={{backgroundImage: `url(${RimBackground})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
                 <div style={{ width: '100%', height:'115px', border: '2px solid transparent' }}>
-                    <div className='w-[1270px] sm:w-[375px] h-[69px] border-2 border-[#F5F5F514] rounded-[64px] bg-black mt-[24px] mx-auto'>
+                    <div className='w-[1270px] sm:w-[375px] h-[69px] border-2 border-[#F5F5F514] rounded-[64px] bg-[#000000] mt-[24px] mx-auto'>
                         <div className='searchBarIcon'>
                             <img src={GoIcon} />
                         </div>
                         <div className='menuBarIcon'>
-                            <a className='text-white cursor-pointer menuText' onClick={openSideMenu} >Menu <img src={MenuIcon} style={{ display: 'inline-block', marginLeft: '8px' }}/></a>
+                            <a className='text-white cursor-pointer menuText' onClick={openSideMenu} >MENU <img src={MenuIcon} style={{ display: 'inline-block', marginLeft: '8px' }}/></a>
                         </div>
                     </div>
                 </div>            
-                <div className='w-[1270px] sm:w-[327px] mt-[130px] mx-auto'>
+                <div className='w-[1270px] sm:w-[327px] mt-[130px] sm:mt-[70px] mx-auto'>
                     <p className='text-8xl	sm:text-[53px] font-extrabold text-white text-left mt-[28px]'>YOUR NEW-BREED,</p>
                     <p className='text-8xl	sm:text-[53px] font-extrabold text-white text-right mt-[28px]'>END-TO-END</p>
                     <p className='text-8xl	sm:text-[53px] font-extrabold text-white text-left mt-[28px] ml-20 sm:ml-0'>DIGITAL ALLY</p>
@@ -461,7 +456,6 @@ function MainPage() {
                 <div style={{ clear: 'both'}}></div>
             </div>
             <div style={{ clear: 'both'}}></div>
-        </div>
     </div>
   )
 }

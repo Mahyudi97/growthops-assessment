@@ -3,7 +3,7 @@ import './Preloader.css'
 
 function Preloader() {
   return (
-    <div className='Preloader h-screen flex'>
+    <div className='z-10 absolute h-screen w-screen bg-[#33FFF3] flex preloaderAnimation2'>
         <div className='mt-[337px] sm:mt-[444px]  mb-auto mx-auto w-[1206px] sm:w-[327px] mx-auto flex sm:block'>
             <div className='w-[860px] sm:w-[327px] text-[128px] sm:text-[53px] font-extrabold	text-white leading-none	'>
                 We’re

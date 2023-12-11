@@ -1,8 +1,20 @@
 .main {
     background: #000000;
-    min-height: 100vh;
     position: relative;
 }
+
+/* On Load Animation */
+.mainPageAnimation {
+    margin-top: 50vh;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;  
+  }
+  
+  @keyframes example {
+    from { margin-top: 50vh;}
+    to { margin-top: 0vh;}
+  }
 
 /* Side Menu */
 .sideMenuModal {
